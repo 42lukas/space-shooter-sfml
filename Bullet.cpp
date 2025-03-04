@@ -1,4 +1,3 @@
-// Bullet.cpp
 #include "Bullet.hpp"
 
 Bullet::Bullet(float x, float y, float speed, bool isPlayerBullet) : speed(speed), isPlayerBullet(isPlayerBullet) {

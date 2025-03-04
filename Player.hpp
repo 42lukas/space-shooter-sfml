@@ -1,4 +1,3 @@
-// Player.hpp
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
@@ -15,6 +14,10 @@ public:
     void shoot(std::vector<Bullet>& bullets);
 
     sf::RectangleShape shape;
+private:
+    sf::Texture playerTexture;
+
+
 };
 
 #endif

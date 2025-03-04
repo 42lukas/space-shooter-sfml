@@ -1,4 +1,3 @@
-// Enemy.hpp
 #ifndef ENEMY_HPP
 #define ENEMY_HPP
 
@@ -8,7 +7,7 @@
 
 class Enemy {
 public:
-    Enemy(float x, float y, int health = 1, float speed = 0.05f, int shootInterval = 500);
+    Enemy(float x, float y, int health = 1, float speed = 0.05f, int shootInterval = 2000);
     void update(std::vector<Bullet>& bullets);
     void draw(sf::RenderWindow& window);
     void shoot(std::vector<Bullet>& bullets);

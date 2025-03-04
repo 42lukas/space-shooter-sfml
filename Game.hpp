@@ -21,6 +21,8 @@ private:
     sf::Clock spawnClock;
     sf::Font font;
     sf::Text playerLivesText;
+    sf::Texture backgroundTexture;
+    sf::Sprite backgroundSprite;
 
     void processEvents(sf::Clock& clock);
     void update();

@@ -1,4 +1,3 @@
-// main.cpp
 #include "Game.hpp"
 #include <iostream>
 #include <filesystem>

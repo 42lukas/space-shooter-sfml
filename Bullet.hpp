@@ -1,4 +1,3 @@
-// Bullet.hpp
 #ifndef BULLET_HPP
 #define BULLET_HPP
 
