@@ -24,6 +24,7 @@
     <ProjectGuid>{dd8e5d74-434d-4d7d-876f-0c466d931a0a}</ProjectGuid>
     <RootNamespace>SetPlot</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>SpaceShooter</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
