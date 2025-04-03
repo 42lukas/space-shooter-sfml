@@ -7,8 +7,10 @@
 
 class Enemy {
 public:
-    Enemy(float x, float y, int health = 1, float speed = 0.05f, int shootInterval = 2000);
-    void update(std::vector<Bullet>& bullets);
+    Enemy(float x, float y, int health = 1, float speed = 175.0f, int shootInterval = 500);
+
+    // Update-Methode mit dt
+    void update(std::vector<Bullet>& bullets, float dt);
     void draw(sf::RenderWindow& window);
     void shoot(std::vector<Bullet>& bullets);
     bool isHit(const Bullet& bullet);

@@ -8,16 +8,18 @@
 class Player {
 public:
     Player();
-    void handleInput(std::vector<Bullet>& bullets, sf::Clock& clock);
-    void update();
+
+    // Geänderte Signaturen:
+    void handleInput(std::vector<Bullet>& bullets, sf::Clock& clock, float dt);
+    void update(float dt);
+
     void draw(sf::RenderWindow& window);
     void shoot(std::vector<Bullet>& bullets);
 
     sf::RectangleShape shape;
+
 private:
     sf::Texture playerTexture;
-
-
 };
 
 #endif

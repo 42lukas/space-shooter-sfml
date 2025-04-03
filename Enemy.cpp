@@ -1,28 +1,40 @@
 #include "Enemy.hpp"
 #include <cstdlib>
-using namespace std;
 
 Enemy::Enemy(float x, float y, int health, float speed, int shootInterval)
-    : health(health), speed(speed), shootInterval(shootInterval) {
-
+    : health(health)
+    , speed(speed)
+    , shootInterval(shootInterval)
+{
     shape.setRadius(20);
-    shape.setFillColor(health > 1 ? sf::Color::Blue : sf::Color::Red); // Tanks sind Blau, normale Gegner Rot
+    // Tanks (health > 1) = Blau, sonst Rot
+    shape.setFillColor(health > 1 ? sf::Color::Blue : sf::Color::Red);
     shape.setPosition(x, y);
 
-    shootClock.restart(); // Startet den shooting Timer
-    moveClock.restart(); // Startet den movement Timer
+    shootClock.restart(); // Schusstimer
+    moveClock.restart();  // Optionaler Bewegungstimer für komplexere Patterns
 }
 
 // updated die Position und das Verhalten des Gegners
-void Enemy::update(std::vector<Bullet>& bullets) {
-    shape.move(0, speed);
+void Enemy::update(std::vector<Bullet>& bullets, float dt) {
+    // Bewegung nach unten
+    // Bei speed=60.f z.B. ~60 Pixel pro Sekunde
+    shape.move(0.f, speed * dt);
+
+    // Schießen (falls Intervall überschritten)
     shoot(bullets);
 }
 
-// Erstellt eine Kugel, wenn der Gegner schießen soll
+// Erstellt eine Kugel, wenn der Gegner schießen darf
 void Enemy::shoot(std::vector<Bullet>& bullets) {
     if (shootClock.getElapsedTime().asMilliseconds() > shootInterval) {
-        bullets.emplace_back(shape.getPosition().x + 10, shape.getPosition().y + 20, 0.1f, false);
+        // Feuert eine Bullet nach unten ab
+        bullets.emplace_back(
+            shape.getPosition().x + 10.f,
+            shape.getPosition().y + 20.f,
+            400.f,            // Bullet-Speed
+            false             // isPlayerBullet
+        );
         shootClock.restart();
     }
 }
@@ -31,9 +43,10 @@ void Enemy::draw(sf::RenderWindow& window) {
     window.draw(shape);
 }
 
-// checkt, ob der Gegner von einer Spieler-Kugel getroffen wurde
+// Check: von Spieler-Kugel getroffen?
 bool Enemy::isHit(const Bullet& bullet) {
-    return bullet.isPlayerBullet && shape.getGlobalBounds().intersects(bullet.shape.getGlobalBounds());
+    return bullet.isPlayerBullet
+        && shape.getGlobalBounds().intersects(bullet.shape.getGlobalBounds());
 }
 
 void Enemy::takeDamage() {

@@ -24,8 +24,10 @@ private:
     sf::Texture backgroundTexture;
     sf::Sprite backgroundSprite;
 
-    void processEvents(sf::Clock& clock);
-    void update();
+    // Geänderte Signaturen:
+    void processEvents(sf::Clock& clock, float dt);
+    void update(float dt);
+
     void render();
     void spawnEnemies();
     void checkCollisions();

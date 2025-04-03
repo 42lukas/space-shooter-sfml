@@ -6,7 +6,8 @@
 class Bullet {
 public:
     Bullet(float x, float y, float speed, bool isPlayerBullet);
-    void update();
+    // Update mit Delta Time:
+    void update(float dt);
     void draw(sf::RenderWindow& window);
 
     sf::RectangleShape shape;
