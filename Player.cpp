@@ -15,7 +15,7 @@ Player::Player() {
 // user Tastatureingaben (jetzt zeitbasiert über dt)
 void Player::handleInput(std::vector<Bullet>& bullets, sf::Clock& clock, float dt) {
     // Definiere eine konstante Geschwindigkeit in Pixeln pro Sekunde
-    const float moveSpeed = 300.f;
+    const float moveSpeed = 400.f;
 
     // links <-- a
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && shape.getPosition().x > 0) {
@@ -30,9 +30,9 @@ void Player::handleInput(std::vector<Bullet>& bullets, sf::Clock& clock, float d
 
     // player schießt
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)
-        && clock.getElapsedTime().asMilliseconds() > 100)
+        && clock.getElapsedTime().asMilliseconds() > 150)
     {
-        // Kugel (Bullet) fliegt mit -300 px/s nach oben (Beispiel)
+        // Bullet fliegt nach oben
         bullets.emplace_back(
             shape.getPosition().x + 37.5f,
             shape.getPosition().y,

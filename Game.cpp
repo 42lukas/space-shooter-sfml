@@ -113,13 +113,13 @@ void Game::spawnEnemies() {
     int enemyType = std::rand() % 2; // 0 = Normaler Gegner, 1 = Tank
 
     if (enemyType == 0) {
-        // Normaler Gegner: health=1, speed=150.f, shootInterval=1000 ms
-        enemies.emplace_back(x, 0, 1, 150.f, 1000);
+        // Normaler Gegner: health=1, speed=150.f, shootInterval=1700 ms
+        enemies.emplace_back(x, 0, 1, 150.f, 1700);
     }
     else {
         // Tank: 3 Leben, langsamer, schieﬂt etwas seltener
-        // speed=100.f, shootInterval=1500 ms
-        enemies.emplace_back(Enemy(x, 0, 3, 100.f, 1500));
+        // speed=100.f, shootInterval=2200 ms
+        enemies.emplace_back(Enemy(x, 0, 3, 100.f, 2200));
     }
 }
 
