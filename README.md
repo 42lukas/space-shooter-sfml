@@ -16,5 +16,8 @@ Weiche den Gegnern aus und lasse sie nicht an dir vorbei.
 Es gibt rote und blaue Kreise. Ein roter Kreis spiegelt einen schnellen Gegner dar, dieser schießt und bewegt sich schneller, hat jedoch nur ein Leben. 
 Der blaue Kreis hingegen ist der "Tank" dieser kann drei Schüsse aushalten bis er stirbt. Seine Schüsse sind langsamer und er selber bewegt sicht auch langsamer.
 
+## Repository Link
+[GitHub-Repository](https://github.com/42lukas/space-shooter-sfml)
+
 ## Credits
 Lukas
